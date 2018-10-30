@@ -1,2 +1,86 @@
-Hola
-I love you
+<html>
+	<head>
+		<title>I love U</title>
+	</head>
+	<style>
+		.main{
+			text-align: center; /*让div内部文字居中*/
+			background-color: #fff;
+			border-radius: 20px;
+			width: 400px;
+			height: 350px;
+			margin: auto;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			font-size:40px;
+			font-weight:bold;
+		}
+		.hello {
+			display:none;
+		}
+	</style>
+
+	<body>
+		<div class="main">
+			<div class="hello">
+				<div id="h"></div>
+				<div id="l"></div>
+			</div>
+		</div>
+	</body>
+
+	<script src='./js/jq.js'></script>
+	<script>
+		var vs = [
+			{h:'Hello', v: 'I love you'},
+			{h:'你好', v: '我爱你'},
+			{h:'こんにちは', v: '爱してる'},
+			{h:'안녕하세요', v: '나는 너를 사랑해'}, // 韩
+			{h:'Hola', v: 'Te amo'}, // 西班牙
+			{h:'สวัสดี', v: 'ฉันรักคุณ'}, // 泰
+			{h:'Hello', v: 'Mahal kita'}, // 菲
+			{h:'Hello', v: 'Saya sayang awak'}, // 马来
+			{h:'прывітанне', v: 'Я люблю цябе'}, // 俄
+			{h:'Hallo', v: 'Ich liebe dich'}, // 德
+			{h:'Cześć', v: 'Kocham cię'}, // 波兰
+			{h:'مرحبا', v: 'انا احبك'}, // 阿拉伯
+			{h:'Xin chào', v: 'Anh yêu em'}, // 越南
+			{h:'Bonjour', v: 'Je t\'aime'}, // 法
+			{h:'Halo', v: 'Aku mencintaimu'} //印尼
+		]
+		var i = 0
+		var len = vs.length
+
+		$(function() {
+			begin()
+			setInterval(function() {
+				begin()
+			},5000)
+		})
+
+		function begin() {
+			$('.hello').css('display','none')
+			$('#h').html(vs[i].h)
+			$('#l').html(vs[i].v)
+			show()
+			//console.log(vs[i].h + vs[i].v)
+			//console.log(i)
+			if(i < len - 1){
+				i++
+			} else {
+				i = 0
+			}
+		}
+
+		function show() {
+			$('.hello').fadeToggle(2500);
+			setTimeout(function() {
+				$('.hello').fadeOut(2500);
+			},2500)
+		}
+
+	</script>
+</html>
